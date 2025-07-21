@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <!-- AdSense Script - REPLACE WITH YOUR PUBLISHER ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --text-color: #f8f9fa;
+            --card-bg: #4a4e69;
+            --bg-gradient: linear-gradient(135deg, #3a0ca3 0%, #4361ee 100%);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .ad-container {
+            margin: 25px auto;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 728px;
+        }
+        
+        .clock-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .clock-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease;
+        }
+        
+        .clock-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .location {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .flag {
+            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .time {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 15px 0;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .timezone {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .clock-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .ad-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Ad Unit -->
+        <div class="ad-container">
+            <!-- AdSense Header Ad - REPLACE WITH YOUR AD CODE -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_HEADER_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <h1>World Clock</h1>
+        
+        <div class="clock-container">
+            <!-- New York -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/us.svg" class="flag" alt="USA Flag">
+                    New York
+                </div>
+                <div class="time" id="time-ny">--:--:--</div>
+                <div class="date" id="date-ny">Loading...</div>
+                <div class="timezone">EST/EDT</div>
+            </div>
+            
+            <!-- London -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/gb.svg" class="flag" alt="UK Flag">
+                    London
+                </div>
+                <div class="time" id="time-london">--:--:--</div>
+                <div class="date" id="date-london">Loading...</div>
+                <div class="timezone">GMT/BST</div>
+            </div>
+            
+            <!-- Mid-Page Ad Unit -->
+            <div class="ad-container" style="grid-column: 1 / -1;">
+                <!-- AdSense Rectangle Ad - REPLACE WITH YOUR AD CODE -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                     data-ad-slot="YOUR_RECTANGLE_AD_SLOT"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <!-- Tokyo -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/jp.svg" class="flag" alt="Japan Flag">
+                    Tokyo
+                </div>
+                <div class="time" id="time-tokyo">--:--:--</div>
+                <div class="date" id="date-tokyo">Loading...</div>
+                <div class="timezone">JST</div>
+            </div>
+            
+            <!-- Sydney -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/au.svg" class="flag" alt="Australia Flag">
+                    Sydney
+                </div>
+                <div class="time" id="time-sydney">--:--:--</div>
+                <div class="date" id="date-sydney">Loading...</div>
+                <div class="timezone">AEDT/AEST</div>
+            </div>
+            
+            <!-- Dubai -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/ae.svg" class="flag" alt="UAE Flag">
+                    Dubai
+                </div>
+                <div class="time" id="time-dubai">--:--:--</div>
+                <div class="date" id="date-dubai">Loading...</div>
+                <div class="timezone">GST</div>
+            </div>
+            
+            <!-- Paris -->
+            <div class="clock-card">
+                <div class="location">
+                    <img src="https://flagcdn.com/fr.svg" class="flag" alt="France Flag">
+                    Paris
+                </div>
+                <div class="time" id="time-paris">--:--:--</div>
+                <div class="date" id="date-paris">Loading...</div>
+                <div class="timezone">CET/CEST</div>
+            </div>
+        </div>
+        
+        <!-- Footer Ad Unit -->
+        <div class="ad-container">
+            <!-- AdSense Footer Ad - REPLACE WITH YOUR AD CODE -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_FOOTER_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function updateClocks() {
+            const options = {
+                timeStyle: 'medium',
+                hourCycle: 'h23'
+            };
+            
+            const dateOptions = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            
+            // New York
+            const nyTime = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
+            const nyDate = new Date().toLocaleDateString('en-US', { ...dateOptions, timeZone: 'America/New_York' });
+            document.getElementById('time-ny').textContent = nyTime;
+            document.getElementById('date-ny').textContent = nyDate;
+            
+            // London
+            const londonTime = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+            const londonDate = new Date().toLocaleDateString('en-GB', { ...dateOptions, timeZone: 'Europe/London' });
+            document.getElementById('time-london').textContent = londonTime;
+            document.getElementById('date-london').textContent = londonDate;
+            
+            // Tokyo
+            const tokyoTime = new Date().toLocaleTimeString('ja-JP', { ...options, timeZone: 'Asia/Tokyo' });
+            const tokyoDate = new Date().toLocaleDateString('ja-JP', { ...dateOptions, timeZone: 'Asia/Tokyo' });
+            document.getElementById('time-tokyo').textContent = tokyoTime;
+            document.getElementById('date-tokyo').textContent = tokyoDate;
+            
+            // Sydney
+            const sydneyTime = new Date().toLocaleTimeString('en-AU', { ...options, timeZone: 'Australia/Sydney' });
+            const sydneyDate = new Date().toLocaleDateString('en-AU', { ...dateOptions, timeZone: 'Australia/Sydney' });
+            document.getElementById('time-sydney').textContent = sydneyTime;
+            document.getElementById('date-sydney').textContent = sydneyDate;
+            
+            // Dubai
+            const dubaiTime = new Date().toLocaleTimeString('ar-AE', { ...options, timeZone: 'Asia/Dubai' });
+            const dubaiDate = new Date().toLocaleDateString('ar-AE', { ...dateOptions, timeZone: 'Asia/Dubai' });
+            document.getElementById('time-dubai').textContent = dubaiTime;
+            document.getElementById('date-dubai').textContent = dubaiDate;
+            
+            // Paris
+            const parisTime = new Date().toLocaleTimeString('fr-FR', { ...options, timeZone: 'Europe/Paris' });
+            const parisDate = new Date().toLocaleDateString('fr-FR', { ...dateOptions, timeZone: 'Europe/Paris' });
+            document.getElementById('time-paris').textContent = parisTime;
+            document.getElementById('date-paris').textContent = parisDate;
+        }
+        
+        // Update clocks immediately and then every second
+        updateClocks();
+        setInterval(updateClocks, 1000);
+        
+        // Load ads after page content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Push any ads that might not have been loaded
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        });
+    </script>
+</body>
+</html>
